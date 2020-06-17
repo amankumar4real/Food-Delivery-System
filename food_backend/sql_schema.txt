@@ -1,0 +1,14 @@
+user = id, f_name, l_name, email, password, city
+
+owner = id, f_name, l_name, email, password, city
+
+resturent = id, name, est, contact, rating
+
+dish = id, name, res_id, des, price, photo
+
+owner_res = id, owner_id, res_id
+
+orders = id, tym, dish_id, res_id, user_id
+
+dish_rest = id, dish_id, res_id
+
