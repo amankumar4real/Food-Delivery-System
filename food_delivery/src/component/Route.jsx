@@ -8,6 +8,7 @@ import Dashboard from "./Dashboard"
 import Cart from "./Cart"
 import DashboardOwner from "./DashboardOwner"
 import TrackOrder from "./TrackOrder"
+import AdsRes from "./Add_rest"
 
 const Routers = () => {
     return(
@@ -20,6 +21,7 @@ const Routers = () => {
             <Route path="/cart" component={Cart}/>
             <Route path="/dashboard_owner" component={DashboardOwner}/>
             <Route path="/track_order" component={TrackOrder}/>
+            <Route path="/add_res" component={AdsRes}/>
         </div>
     )
 }

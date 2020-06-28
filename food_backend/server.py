@@ -183,3 +183,40 @@ def complete_order():
     cur.close()
 
     return {"message": "Dishes Ordered Completed!"}
+
+@app.route("/add_rest", methods=["POST"])
+def add_rest():
+    name = request.json["name"]
+    est = request.json["est"]
+    contact = request.json["contact"]
+    rating = request.json["rating"]
+    owner_id = request.json["owner_id"]
+
+    cur = mysql.connection.cursor()
+    cur.execute('''INSERT INTO restaurant (name, est, contact, rating) VALUES("%s", "%s", %s, %s)'''%(name, est, contact, rating))
+
+    mysql.connection.commit()
+    cur.close()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT id FROM restaurant;''')
+
+    result = cur.fetchall()
+    ind = 1
+
+    for i in result:
+        ind = int(i[0])
+
+    cur = mysql.connection.cursor()
+    cur.execute('''INSERT INTO owner_res (owner_id, res_id) VALUES("%s", "%s")'''%(owner_id, ind))
+
+    mysql.connection.commit()
+    cur.close()
+
+    return "Data added!"
+
+    
+
+
+
+    

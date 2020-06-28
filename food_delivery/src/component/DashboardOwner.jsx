@@ -26,6 +26,9 @@ class DashboardOwner extends React.Component{
         this.props.findTrackOrder(datas)
         this.props.history.push("/track_order")
     }
+    handleAddRes = () => {
+        this.props.history.push("/add_res")
+    }
 
     render(){
         const {loginProgress, loginData, restData} = this.props
@@ -59,6 +62,16 @@ class DashboardOwner extends React.Component{
                             </div>
                         </div>
                     </div>
+
+                    <div className="row text-center">
+                        <div className="col">
+                            <button onClick={this.handleAddRes} className="btn btn-sm btn-primary">ADD NEW HOTEL</button>
+                        </div>
+                        <div className="col">
+                            <button className="btn btn-sm btn-primary">ADD NEW DISH</button>
+                        </div>
+                    </div>
+
                     <div className="row mt-5">
                         <div className="offset-2 col-8">
                                 <h5 class="card-header bg-dark text-light ">Restaurant Owned!</h5>
