@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {selectedHotel, findResData, findInsertOrder} from "../redux/action";
+import {selectedHotel, findResData, findInsertOrder, findFetchOrder} from "../redux/action";
 import Search from "./Search"
 import {Link} from "react-router-dom"
 import styles from "../css/Restaurant.module.css"
@@ -28,6 +28,16 @@ class Restaurant extends React.Component{
                 dish_id: log_datas[9]
             }
             this.props.findInsertOrder(new_data)
+
+            var temp = {
+                user_id: this.props.loginData[0][3]
+            }
+
+            const {findFetchOrder} = this.props
+
+            setTimeout(function(){
+                findFetchOrder(temp)
+            }, 500)
         }
         else{
             alert("You need to login!")
@@ -141,15 +151,17 @@ const mapStateToProps = state => {
         resData: state.resData,
         searched: state.searched,
         loginProgress: state.loginProgress,
-        loginData: state.loginData
+        loginData: state.loginData,
+        userOrders: state.userOrders
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return{
         selectedHotel: payload => dispatch(selectedHotel(payload)),
-        findResData: payload => dispatch(findResData(payload))  ,
-        findInsertOrder: payload => dispatch(findInsertOrder(payload))
+        findResData: payload => dispatch(findResData(payload)),
+        findInsertOrder: payload => dispatch(findInsertOrder(payload)),
+        findFetchOrder: payload => dispatch(findFetchOrder(payload))
     }
 }
 

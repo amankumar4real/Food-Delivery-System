@@ -8,8 +8,23 @@ class Top extends React.Component{
         super(props)
     }
 
+    componentDidMount(){
+        if(this.props.loginProgress == "logged in!"){
+            var temp = {
+            user_id: this.props.loginData[0][3]
+        }
+        this.props.findFetchOrder(temp)
+        }
+    }
+
     render(){
-        const {loginProgress, loginData, logOut, loginKind} = this.props
+        const {userOrders, loginProgress, loginData, logOut, loginKind} = this.props
+        console.log(userOrders)
+
+        const cart_data = userOrders.filter(a=>{
+            return a[4] == 0
+        })
+
         if(loginProgress != "logged in!"){
             return(
                 <div className="container-fluid">
@@ -32,7 +47,7 @@ class Top extends React.Component{
                         <div className="col-6 my-auto text-right">
                             <Link to="/register"><button className="mr-1 mb-1 btn btn-sm btn-outline-success">Sign Up</button></Link>
                             <Link to="/login"><button className="mr-1 mb-1 btn btn-sm btn-primary">Sign In</button></Link>
-                            <Link to="/cart"><img src="cart4.png" className="mr-2 mb-1 img-fluid img-card" style={{width:"6%", background:""}} alt="cart"/></Link>
+                            <span className="text-light mr-2"><Link to="/cart"><img src="cart4.png" className=" mb-1 img-fluid img-card" style={{width:"25px", background:""}} alt="cart"/></Link></span>
                         </div>
                     </div>
                         
@@ -60,7 +75,7 @@ class Top extends React.Component{
                                 </div>
 
                                 <div className="col-6 my-auto text-right">
-                                <Link to="/cart"><img src="cart4.png" className="mr-2 mb-1 img-fluid img-card" style={{width:"6%", background:""}} alt="cart"/></Link>
+                                    <span className="text-light mr-2"><Link to="/cart"><img src="cart4.png" className="mb-1 img-fluid img-card" style={{width:"25px", background:""}} alt="cart"/></Link>{cart_data.length}</span>
                                     <button onClick={logOut} className="btn btn-sm btn-danger mr-2">Logout</button>
                                     <button className="btn btn-sm btn-outline-warning"><Link to="/dashboard">Hi {loginData[0][0]}!</Link></button>
                                 </div>

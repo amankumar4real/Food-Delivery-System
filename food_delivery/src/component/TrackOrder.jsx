@@ -18,7 +18,12 @@ class TrackOrder extends React.Component{
             res_id: items[4],
             owner_id:items[5]
         }
-        this.props.findTrackOrder(datas_b)
+
+        const {findTrackOrder} = this.props
+
+        setTimeout(function(){
+            findTrackOrder(datas_b)
+        }, 500)
     }
 
 

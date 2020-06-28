@@ -9,9 +9,6 @@ import styles from "../css/Dash.module.css"
 class Dashboard extends React.Component{
     constructor(props){
         super(props)
-
-        
-
     }
 
     componentDidMount(){
@@ -32,8 +29,13 @@ class Dashboard extends React.Component{
         var temp = {
             user_id: this.props.loginData[0][3]
         }
+
+        const {findFetchOrder} = this.props
+
+        setTimeout(function(){
+            findFetchOrder(temp)
+        }, 500)
         
-        this.props.findFetchOrder(temp)
     }
 
     render(){
@@ -81,7 +83,7 @@ class Dashboard extends React.Component{
                             <div className="row p-3 text-center mx-auto mt-5">
                                 <div className="offset-2 col-8">
                                         <h5 class="card-header">Order On way!</h5>
-                                        <table class="card-body table table-hover table-striped table-warning">
+                                        <table class="card-body table table-hover table-striped table-success">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Item</th>
@@ -109,7 +111,7 @@ class Dashboard extends React.Component{
                             <div className="row p-3 text-center mx-auto">
                                 <div className="offset-2 col-8">
                                         <h5 class="card-header">Completed Orders!</h5>
-                                        <table class="card-body table table-hover table-striped table-success">
+                                        <table class="card-body table table-hover table-striped table-danger">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Item</th>

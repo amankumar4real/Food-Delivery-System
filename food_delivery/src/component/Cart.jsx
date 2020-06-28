@@ -26,7 +26,12 @@ class Cart extends React.Component{
         var temp = {
             user_id: this.props.loginData[0][3]
         }
-        this.props.findFetchOrder(temp)
+        
+        const {findFetchOrder} = this.props
+
+        setTimeout(function(){
+            findFetchOrder(temp)
+        }, 500)
     }
 
     handleOwnWay = (items) => {
@@ -41,7 +46,11 @@ class Cart extends React.Component{
             user_id: this.props.loginData[0][3]
         }
 
-        this.props.findFetchOrder(temp)
+        const {findFetchOrder} = this.props
+
+        setTimeout(function(){
+            findFetchOrder(temp)
+        }, 500)
     }
 
     render(){
