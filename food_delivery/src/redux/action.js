@@ -2,7 +2,7 @@ import {fetch_primary_data, fetch_primary_data_succ, fetch_primary_data_fail, se
     fetch_reg, fetch_reg_succ, fetch_reg_fail, change_reg, fetch_log, fetch_log_succ, fetch_log_fail, change_log, insert_order, insert_order_succ, insert_order_fail, 
     fetch_orders, fetch_orders_succ, fetch_orders_fail, log_out, fetch_cart, fetch_cart_succ, fetch_cart_fail, fetch_onway, fetch_onway_succ, fetch_onway_fail, 
     fetch_rest, fetch_rest_succ, fetch_rest_fail, fetch_track_order, fetch_track_order_succ, fetch_track_order_fail, 
-    fetch_complete, fetch_complete_succ, fetch_complete_fail} from "./actionType"
+    fetch_complete, fetch_complete_succ, fetch_complete_fail, fetch_add_restaurant_fail, fetch_add_restaurant, fetch_add_restaurant_succ, change_add_restaurant} from "./actionType"
 import axios from "axios"
 
 export const fetchPrimaryData = payload => ({
@@ -190,6 +190,27 @@ export const fetchCompleteFail = payload => ({
     payload
 })
 
+export const fetchAddRestaurant = payload => ({
+    type: fetch_add_restaurant,
+    payload
+})
+
+export const fetchAddRestaurantSucc = payload => ({
+    type: fetch_add_restaurant_succ,
+    payload
+})
+
+export const fetchAddRestaurantFail = payload => ({
+    type: fetch_add_restaurant_fail,
+    payload
+})
+
+export const changeAddRestaurant = payload => ({
+    type: change_add_restaurant,
+    payload
+})
+
+
 // axios call for basic restaurant and dish details
 export const findData = payload => dispatch => {
     dispatch(fetchPrimaryData)
@@ -222,7 +243,7 @@ export const findReg = payload => dispatch => {
 
 //axios call to login an user/owner
 export const findLog = payload => dispatch => {
-    console.log(payload)
+    // console.log(payload)
     dispatch(fetchLog)
 
     return axios.post("http://127.0.0.1:5000/login",payload)
@@ -264,7 +285,7 @@ export const findCartDel = payload => dispatch=> {
 
 //axios call to order the food
 export const findOnWay = payload => dispatch=> {
-    console.log(payload)
+    // console.log(payload)
     dispatch(fetchOnway)
 
     return axios.post("http://127.0.0.1:5000/onway",payload)
@@ -275,7 +296,7 @@ export const findOnWay = payload => dispatch=> {
 
 // axios call to get the name of restaurant owned by a single man
 export const findRest = payload => dispatch=> {
-    console.log(payload)
+    // console.log(payload)
     dispatch(fetchRest)
 
     return axios.post("http://127.0.0.1:5000/find_rest",payload)
@@ -286,7 +307,7 @@ export const findRest = payload => dispatch=> {
 
 //axios call to get all the orders from a restaurant
 export const findTrackOrder = payload => dispatch=> {
-    console.log(payload)
+    // console.log(payload)
     dispatch(fetchTrackOrder)
 
     return axios.post("http://127.0.0.1:5000/order_track",payload)
@@ -297,11 +318,21 @@ export const findTrackOrder = payload => dispatch=> {
 
 //axios call to complete the order
 export const findComplete = payload => dispatch=> {
-    console.log(payload)
+    // console.log(payload)
     dispatch(fetchComplete)
 
     return axios.post("http://127.0.0.1:5000/complete_order",payload)
     .then(res=> res.data.message)
     .then(res=> dispatch(fetchCompleteSucc(res)))
     .catch(error=>dispatch(fetchCompleteFail(error)))
+}
+
+//axios calls to add new restaurants
+export const findAddRestaurant = payload => dispatch => {
+    dispatch(fetchAddRestaurant)
+
+    return axios.post("http://127.0.0.1:5000/add_rest", payload)
+    .then(res=> res.data)
+    .then(res=>dispatch(fetchAddRestaurantSucc(res)))
+    .catch(error=>dispatch(fetchAddRestaurantFail(error)))
 }

@@ -49,3 +49,9 @@ export const fetch_track_order_fail = "fetch_track_order_fail"
 export const fetch_complete = "fetch_complete"
 export const fetch_complete_succ = "fetch_complete_succ"
 export const fetch_complete_fail = "fetch_complete_fail"
+
+export const fetch_add_restaurant = "fetch_add_restaurant"
+export const fetch_add_restaurant_succ = "fetch_add_restaurant_succ"
+export const fetch_add_restaurant_fail = "fetch_add_restaurant_fail"
+
+export const change_add_restaurant = "change_add_restaurant"
