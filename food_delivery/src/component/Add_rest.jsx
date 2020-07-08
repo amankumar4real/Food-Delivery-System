@@ -40,8 +40,15 @@ class AdsRes extends React.Component{
         if(loginProgress == "logged in!"){
             return(
                     <div className="container-fluid">
-                        <div className="row mt-5">
-                            <div className="offset-3 col-6">
+                        <div className="row mt-5 text-center">
+                            <div className="col">
+                                <h2>ADD RESTAURANT</h2>
+                            </div>
+                        </div>
+                        <div className="row mt-2">
+                            <div class="card bg-light mt-5 mx-auto" style={{width: "26rem"}}>
+                                <img class="card-img-top" src="hotel.jpg" alt="Card image cap"/>
+                                <div class="card-body">
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input name="name" value={this.state.name} onChange={this.handleChange} class="form-control"/>
@@ -59,6 +66,7 @@ class AdsRes extends React.Component{
                                     <input name="rating" value={this.state.rating} onChange={this.handleChange} class="form-control"/>
                                 </div>
                                 <button onClick={()=>this.handleHotel(this.state)} className="btn btn-warning">ADD</button>
+                                </div>
                             </div>
                         </div>
                     </div>

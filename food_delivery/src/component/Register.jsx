@@ -45,17 +45,41 @@ class Register extends React.Component{
                     </div>
                     <div className={styles.bck} style={{padding:"90px 0px 190px 0px"}}>
                       <div className="mt-5 container-fluid">
-                        <h1 className="mb-5 font-italic text-dark offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4">Register!</h1>
-                        <input name="f_name" value={this.state.f_name} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4" placeholder="Enter First Name" /><br/>
-                        <input name="l_name" value={this.state.l_name} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4" placeholder="Enter Last Name" /><br/>
-                        <input name="email" value={this.state.email} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-46" placeholder="Enter Email" /><br/>
-                        <input name="password" type="password" value={this.state.password} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4" placeholder="Enter Password" /><br/>
-                        <input name="city" value={this.state.city} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4" placeholder="Enter City" /><br/>
-                        <select value={this.state.typ} onChange={(event)=>this.setState({typ: event.target.value})} id="inputState" class="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4">
-                            <option value="user">Customer</option>
-                            <option value="owner">Owner</option>
-                        </select><br/>
-                        <button onClick={()=>findReg(this.state)} className="offset-4 col-4 offset-sm-5 col-sm-2 offset-lg-5 col-lg-2 btn btn-success">Register</button>
+                        <h1 className="mb-5 font-italic text-dark text-center">Register!</h1>
+                        <div class="card bg-success mt-5 mx-auto" style={{width: "26rem"}}>
+                                <img class="card-img-top mx-auto mt-4" style={{width:"40%"}} src="register.png" alt="Card image cap"/>
+                                <div class="card-body">
+                                <div class="form-group">
+                                    <label>Enter First Name</label>
+                                    <input name="f_name" value={this.state.f_name} onChange={this.handleChange} className="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Enter Last Name</label>
+                                    <input name="l_name" value={this.state.l_name} onChange={this.handleChange} className="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Enter Email</label>
+                                    <input name="email" value={this.state.email} onChange={this.handleChange} className="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Enter Password</label>
+                                    <input name="password" type="password" value={this.state.password} onChange={this.handleChange} className="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Enter City</label>
+                                    <input name="city" value={this.state.city} onChange={this.handleChange} className="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>User Type</label>
+                                    <select value={this.state.typ} onChange={(event)=>this.setState({typ: event.target.value})} id="inputState" class="form-control">
+                                        <option value="user">Customer</option>
+                                        <option value="owner">Owner</option>
+                                    </select>
+                                </div>
+                                    <button onClick={()=>findReg(this.state)} className="btn mt-2 btn-warning">Register</button>
+                                </div>
+                            </div>
+                        
                     </div>  
                     </div>
                     

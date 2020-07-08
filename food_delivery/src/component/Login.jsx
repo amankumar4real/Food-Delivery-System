@@ -43,18 +43,32 @@ class Login extends React.Component{
                         </li>
                     </ul>
                 </div>
-                <div className={styles.bck} style={{padding:"90px 0px 290px 0px"}}>
+                <div className={styles.bck} style={{padding:"90px 0px 190px 0px"}}>
                     <div className="mt-5 container-fluid">
-                        <h1 className="mb-5 font-italic text-dark offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4">Login!</h1>
-                        <input name="email" value={this.state.name} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4" placeholder="Email id" /><br/>
-                        <input type="password" name="password" value={this.state.name} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4" placeholder="Password" /><br/>
-                        <select value={this.state.typ} onChange={(event)=>this.setState({typ: event.target.value})} id="inputState" class="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4">
-                            <option value="user">Customer</option>
-                            <option value="owner">Owner</option>
-                        </select><br/>
-                        <button onClick={()=>findLog(this.state)} className="offset-4 col-4 offset-sm-5 col-sm-2 offset-lg-5 col-lg-2 btn btn-success">Login</button><br/><br/><br/>
-                </div> 
-                </div>
+                        <h1 className="font-italic text-dark text-center">Login!</h1>
+                        <div class="card bg-danger mt-5 mx-auto" style={{width: "26rem"}}>
+                                <img class="card-img-top mx-auto mt-4" style={{width:"40%"}} src="login.png" alt="Card image cap"/>
+                                <div class="card-body">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input name="email" value={this.state.name} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4" placeholder="Email id" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" name="password" value={this.state.name} onChange={this.handleChange} className="mt-1 form-control offset-3 col-6 offset-sm-4 col-sm-4 offset-lg-4 col-lg-4" placeholder="Password" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>User Type</label>
+                                    <select value={this.state.typ} onChange={(event)=>this.setState({typ: event.target.value})} id="inputState" class="form-control">
+                                        <option value="user">Customer</option>
+                                        <option value="owner">Owner</option>
+                                    </select>
+                                </div>
+                                    <button onClick={()=>findLog(this.state)} className=" btn btn-primary">Login</button>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
                 
             </div>
         )
