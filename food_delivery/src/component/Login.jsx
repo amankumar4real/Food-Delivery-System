@@ -39,14 +39,14 @@ class Login extends React.Component{
                             <Link className="nav-link mr-2" to="/">Home</Link>
                         </li>
                         <li class="nav-item">
-                            <Link className="nav-link mr-3" to="/contact">Contact</Link>
+                            <Link className="nav-link mr-3" to="/">Contact</Link>
                         </li>
                     </ul>
                 </div>
                 <div className={styles.bck} style={{padding:"90px 0px 190px 0px"}}>
                     <div className="mt-5 container-fluid">
                         <h1 className="font-italic text-dark text-center">Login!</h1>
-                        <div class="card bg-danger mt-5 mx-auto" style={{width: "26rem"}}>
+                        <div class="card bg-danger mt-5 mx-auto col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3">
                                 <img class="card-img-top mx-auto mt-4" style={{width:"40%"}} src="login.png" alt="Card image cap"/>
                                 <div class="card-body">
                                 <div class="form-group">

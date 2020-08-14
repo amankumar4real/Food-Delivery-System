@@ -62,7 +62,11 @@ class Dashboard extends React.Component{
                         </li>
                     </ul>
                 </div>
-                <div >
+                
+                <div style={{
+                    backgroundImage: "url('https://free4kwallpapers.com/uploads/originals/2019/05/18/firewatch-wallpaper.jpg')", backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover", padding:"120px 0px 300px 0px"}}>
+                    
                         <div className="row">
                                 <div className="offset-4 col-4 text-center mt-2">
                                     <img src="profile.png" style={{width:"40%"}} className="img-fluid mx-auto"/>
@@ -72,18 +76,19 @@ class Dashboard extends React.Component{
                                 <div className="offset-4 col-4 text-center mt-2">
                                     <div className="row">
                                         <div className="col-12">
-                                            <h5>{loginData[0][0].toUpperCase()} {loginData[0][1].toUpperCase()}</h5>
+                                            <h5><mark>{loginData[0][0].toUpperCase()} {loginData[0][1].toUpperCase()}</mark></h5>
                                         </div>
                                         <div className="col-12">
-                                            <h6>City: {loginData[0][2].toUpperCase()}</h6>
+                                            <h6><mark>City: {loginData[0][2].toUpperCase()}</mark></h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="row p-3 text-center mx-auto mt-5">
                                 <div className="offset-2 col-8">
-                                        <h5 class="card-header">Order On way!</h5>
-                                        <table class="card-body table table-hover table-striped table-success">
+                                        <h5 class="card-header bg-dark text-light">Order On way!</h5>
+                                        <div className="table-responsive">
+                                        <table class="card-body table table-hover table-striped table-dark">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Item</th>
@@ -106,12 +111,14 @@ class Dashboard extends React.Component{
                                                 
                                             </tbody>
                                         </table>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row p-3 text-center mx-auto">
                                 <div className="offset-2 col-8">
-                                        <h5 class="card-header">Completed Orders!</h5>
-                                        <table class="card-body table table-hover table-striped table-danger">
+                                        <h5 class="card-header bg-dark text-light">Completed Orders!</h5>
+                                        <div className="table-responsive">
+                                        <table class="card-body table table-hover table-striped table-dark">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Item</th>
@@ -132,6 +139,7 @@ class Dashboard extends React.Component{
                                                 
                                             </tbody>
                                         </table>
+                                        </div>
                                 </div>
                             </div>
                 </div>

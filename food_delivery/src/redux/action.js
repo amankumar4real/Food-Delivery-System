@@ -215,7 +215,7 @@ export const changeAddRestaurant = payload => ({
 export const findData = payload => dispatch => {
     dispatch(fetchPrimaryData)
 
-    return axios.get("http://127.0.0.1:5000/")
+    return axios.get("https://foodbackend.amankumar.co/")
     .then(res=> res.data.data)
     .then(res=> dispatch(fetchPrimaryDataSucc(res)))
     .catch(error=>dispatch(fetchPrimaryDataFail(error)))
@@ -225,7 +225,7 @@ export const findData = payload => dispatch => {
 export const findResData = payload => dispatch => {
     dispatch(fetchResDish)
 
-    return axios.post(`http://127.0.0.1:5000/res/${payload}`,)
+    return axios.post(`https://foodbackend.amankumar.co/res/${payload}`,)
     .then(res=> res.data.data)
     .then(res=> dispatch(fetchResDishSucc(res)))
     .catch(error=>dispatch(fetchResDishFail(error)))
@@ -235,7 +235,7 @@ export const findResData = payload => dispatch => {
 export const findReg = payload => dispatch => {
     dispatch(fetchReg)
 
-    return axios.post("http://127.0.0.1:5000/register",payload)
+    return axios.post("https://foodbackend.amankumar.co/register",payload)
     .then(res=> res.data)
     .then(res=> dispatch(fetchRegSucc(res)))
     .catch(error=>dispatch(fetchRegFail(error)))
@@ -246,7 +246,7 @@ export const findLog = payload => dispatch => {
     // console.log(payload)
     dispatch(fetchLog)
 
-    return axios.post("http://127.0.0.1:5000/login",payload)
+    return axios.post("https://foodbackend.amankumar.co/login",payload)
     .then(res=> res.data)
     .then(res=> dispatch(fetchLogSucc(res)))
     .catch(error=>dispatch(fetchLogFail(error)))
@@ -256,7 +256,7 @@ export const findLog = payload => dispatch => {
 export const findInsertOrder = payload => dispatch=> {
     dispatch(insertOrder)
 
-    return axios.post("http://127.0.0.1:5000/insert_order",payload)
+    return axios.post("https://foodbackend.amankumar.co/insert_order",payload)
     .then(res=> res)
     .then(res=> dispatch(insertOrderSucc(res)))
     .catch(error=>dispatch(insertOrderFail(error)))
@@ -266,7 +266,7 @@ export const findInsertOrder = payload => dispatch=> {
 export const findFetchOrder = payload => dispatch=> {
     dispatch(fetchOrder)
 
-    return axios.post("http://127.0.0.1:5000/get_order",payload)
+    return axios.post("https://foodbackend.amankumar.co/get_order",payload)
     .then(res=> res.data)
     .then(res=> dispatch(fetchOrderSucc(res)))
     .catch(error=>dispatch(fetchOrderFail(error)))
@@ -277,7 +277,7 @@ export const findCartDel = payload => dispatch=> {
     // console.log(payload)
     dispatch(fetchCart)
 
-    return axios.post("http://127.0.0.1:5000/remove_item",payload)
+    return axios.post("https://foodbackend.amankumar.co/remove_item",payload)
     .then(res=> res.data.message)
     .then(res=> dispatch(fetchCartSucc(res)))
     .catch(error=>dispatch(fetchCartFail(error)))
@@ -288,7 +288,7 @@ export const findOnWay = payload => dispatch=> {
     // console.log(payload)
     dispatch(fetchOnway)
 
-    return axios.post("http://127.0.0.1:5000/onway",payload)
+    return axios.post("https://foodbackend.amankumar.co/onway",payload)
     .then(res=> res.data.message)
     .then(res=> dispatch(fetchOnwaySucc(res)))
     .catch(error=>dispatch(fetchOnwayFail(error)))
@@ -299,7 +299,7 @@ export const findRest = payload => dispatch=> {
     // console.log(payload)
     dispatch(fetchRest)
 
-    return axios.post("http://127.0.0.1:5000/find_rest",payload)
+    return axios.post("https://foodbackend.amankumar.co/find_rest",payload)
     .then(res=> res.data.data)
     .then(res=> dispatch(fetchRestSucc(res)))
     .catch(error=>dispatch(fetchRestFail(error)))
@@ -310,7 +310,7 @@ export const findTrackOrder = payload => dispatch=> {
     // console.log(payload)
     dispatch(fetchTrackOrder)
 
-    return axios.post("http://127.0.0.1:5000/order_track",payload)
+    return axios.post("https://foodbackend.amankumar.co/order_track",payload)
     .then(res=> res.data.data)
     .then(res=> dispatch(fetchTrackOrderSucc(res)))
     .catch(error=>dispatch(fetchTrackOrderFail(error)))
@@ -321,7 +321,7 @@ export const findComplete = payload => dispatch=> {
     // console.log(payload)
     dispatch(fetchComplete)
 
-    return axios.post("http://127.0.0.1:5000/complete_order",payload)
+    return axios.post("https://foodbackend.amankumar.co/complete_order",payload)
     .then(res=> res.data.message)
     .then(res=> dispatch(fetchCompleteSucc(res)))
     .catch(error=>dispatch(fetchCompleteFail(error)))
@@ -331,7 +331,7 @@ export const findComplete = payload => dispatch=> {
 export const findAddRestaurant = payload => dispatch => {
     dispatch(fetchAddRestaurant)
 
-    return axios.post("http://127.0.0.1:5000/add_rest", payload)
+    return axios.post("https://foodbackend.amankumar.co/add_rest", payload)
     .then(res=> res.data)
     .then(res=>dispatch(fetchAddRestaurantSucc(res)))
     .catch(error=>dispatch(fetchAddRestaurantFail(error)))

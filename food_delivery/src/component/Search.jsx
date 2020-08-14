@@ -3,6 +3,7 @@ import {Link, Route} from "react-router-dom";
 import {connect} from "react-redux";
 import {findData} from "../redux/action";
 import {selectedHotel} from "../redux/action"
+import styles from '../css/Search.module.css';
 
 class Search extends React.Component{
     constructor(props){
@@ -37,7 +38,7 @@ class Search extends React.Component{
 
                 <div className="row mt-2">
 
-                    <div className="offset-4 col-4">
+                    <div className="offset-3 col-6 offset-md-4 col-md-4">
 
                         <input className="form-control mb-2" onChange={
                             this.handleChange
@@ -45,8 +46,8 @@ class Search extends React.Component{
 
                     </div>
 
-                    <div className="col-4">
-                        <img className="img-fluid img-card" style={{width:"10%"}} onClick = {()=>this.getData(this.state.inp)} src="search.png"/>
+                    <div className="col-3 col-md-4">
+                        <img className="img-fluid img-card" style={{width:"10%", minWidth:"30px"}} onClick = {()=>this.getData(this.state.inp)} src="search.png"/>
                     </div>
 
                     
@@ -57,11 +58,12 @@ class Search extends React.Component{
         }
         else{
             return(
+                // <div className={styles.box}>
                 <div className="container-fluid" key="searchhere">
     
-                    <div className="row mt-5">
+                    <div className="row mt-2 ">
     
-                        <div className="offset-4 col-4">
+                        <div className="offset-3 col-6 offset-md-4 col-md-4">
 
                             <input className="form-control mb-2" onChange={
                                 this.handleChange
@@ -69,15 +71,15 @@ class Search extends React.Component{
 
                         </div>
 
-                        <div className="col-4">
+                        <div className="col-3 col-md-4">
                             <img className="img-fluid img-card" style={{width:"10%"}} onClick = {()=>this.getData(this.state.inp)} src="search.png"/>
                         </div>
     
-                        <div className="offset-4 col-4">
+                        <div className="offset-3 col-6 offset-md-4 col-md-4">
                             <table class="table table-sm table-hover">
                                 <tbody>
                             {this.state.check && this.state.check.map(a=>(
-                                <tr>
+                                <tr className="table-dark text-dark">
                                     <td onClick={()=>this.getData(a[0])}>{a}</td>
                                 </tr>
                                     
@@ -89,6 +91,7 @@ class Search extends React.Component{
                     </div>
     
                 </div>
+                // </div>
             )
         }
         

@@ -97,45 +97,58 @@ class Restaurant extends React.Component{
                     <div className="offset-2 col-8">
                         <div className="row">
                             <div className="col-2">
-                                <img src="rest.png" className="img-fluid" style={{width:"80%"}} alt="yahoo"/>
+                                <img src="rest.png" className="img-fluid" style={{width:"80%", minWidth:"50px"}} alt="yahoo"/>
                             </div>
                             <div className="col-10">
                                 <div className="col-10 mb-2 text-danger">
-                                    <h2>{resData[0][0]}</h2>
+                                    <h2 style={{fontSize:"2vw"}}>{resData[0][0]}</h2>
                                 </div>
                                 <div className="text-secondary col-10">
-                                    <h4>Contact: {resData[0][2]}</h4>
+                                    <h4 style={{fontSize:"2vw"}}>Contact: {resData[0][2]}</h4>
                                 </div>
                                 <div className="text-secondary col-10">
-                                    <h4>Established: {resData[0][1]}</h4>
+                                    <h4 style={{fontSize:"2vw"}}>Established: {resData[0][1]}</h4>
                                 </div>
                                 <div className="text-secondary col-10">
-                                    <h4>Rating: {resData[0][3]}/5</h4>
+                                    <h4 style={{fontSize:"2vw"}}>Rating: {resData[0][3]}/5</h4>
                                 </div>
                             </div>
                             
                         </div>
                         <div className="row">
                             <div className="col-12 mt-5">
-                                <h1>{resData.length} Results Found!</h1>
+                                <h1 style={{fontSize:"3vw"}}>{resData.length} Results Found!</h1>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="row p-5">
-                    {resData && resData.map(a=>(
-                        <div className="col-3 my-4">
-                            <div class="card ">
-                                <img class="card-img-top" src= {a[7]} alt="Card image cap"/>
-                                <div class="card-body bg-light">
+                    {resData && resData.map((a,b)=>(
+                        (b%2 ==0 )?
+                        <div  className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-4">
+                            <div  class="card" style={{borderRadius : "30px 0px"}}>
+                                <img class="card-img-top img-fluid" src= {a[7]} style={{height:"200px", borderRadius : "30px 0px 0px 0px"}} alt="Card image cap"/>
+                                <div class="card-body table-primary">
                                     <h5 class="card-title">{a[4]}</h5>
                                     <h6 className="mb-2">Rs. {a[6]}</h6>
                                     <p class="card-text text-secondary">{a[5].split("").slice(0, 100).join("")}......</p>
-                                    <button onClick={()=>this.handle_cart(a)} className="btn-sm btn btn-outline-primary">ADD TO CART</button>
+                                    <button onClick={()=>this.handle_cart(a)} className="btn-sm btn btn-outline-danger">ADD TO CART</button>
                                 </div>
                             </div>
+                        </div>:
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-4">
+                        <div class="card" style={{borderRadius : "0px 30px"}}>
+                            <img class="card-img-top img-fluid" style={{height:"200px", borderRadius : "0px 30px 0px 0px"}} src= {a[7]} alt="Card image cap"/>
+                            <div class="card-body table-danger">
+                                <h5 class="card-title">{a[4]}</h5>
+                                <h6 className="mb-2">Rs. {a[6]}</h6>
+                                <p class="card-text text-secondary">{a[5].split("").slice(0, 100).join("")}......</p>
+                                <button onClick={()=>this.handle_cart(a)} className="btn-sm btn btn-outline-primary">ADD TO CART</button>
+                            </div>
                         </div>
+                    </div>
+
                     ))}
                 </div>
             </div>
